@@ -1,0 +1,12 @@
+# R specific
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
+
+# Outputs (generated files, no need to version these)
+outputs/
+
+# OS clutter
+.DS_Store
+Thumbs.db
