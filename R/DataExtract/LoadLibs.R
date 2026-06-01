@@ -1,15 +1,8 @@
-## Loads all libraries that are in my functions 
-library(stringr)
-library(readxl)
-library(dplyr)
-library(ggplot2)
-library(tidyverse)
-library(lubridate)
-library(patchwork)
-library(directlabels)
-library(purrr)
-library(scales)
-library(writexl)
-library(ggbeeswarm)
-
-
+# Load all required libraries
+library(tidyverse)    # includes dplyr, ggplot2, purrr, stringr, lubridate
+library(readxl)       # read Arbin .xlsx files
+library(writexl)      # save stats output to .xlsx
+library(patchwork)    # combine plots
+library(scales)       # axis label formatting
+library(directlabels) # direct plot labels
+library(ggbeeswarm)   # beeswarm plot geometry

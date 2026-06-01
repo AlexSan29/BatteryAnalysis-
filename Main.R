@@ -1,31 +1,33 @@
-# theme + libraries
-source("R/Plotting/ThemeAS.R")
-source("R/DataExtract/LoadLibs.R")
+# Battery cycling data analysis pipeline
+# Processes data from Arbin cycler systems
 
-# files in /Raw
-source("R/DataExtract/GetFiles.R")
-FileList <- GetFiles()
+# --- Libraries and theme -------------------------------------------
+source(here::here("R", "DataExtract", "LoadLibs.R"))
+source(here::here("R", "Plotting",    "ThemeAS.R"))
 
-# Source all functions
-source("R/DataExtract/ExtractCyclingData.R")
-source("R/DataExtract/ActiveMass.R")
-source("R/DataExtract/LabelSteps.R")
-source("R/DataExtract/PerCycleData.R")
-source("R/DataExtract/ExtractStatsData.R")
+# --- Data extraction functions -------------------------------------
+source(here::here("R", "DataExtract", "GetFiles.R"))
+source(here::here("R", "DataExtract", "ActiveMass.R"))
+source(here::here("R", "DataExtract", "LabelSteps.R"))
+source(here::here("R", "DataExtract", "ExtractCyclingData.R"))
+source(here::here("R", "DataExtract", "PerCycleData.R"))
+source(here::here("R", "DataExtract", "ExtractStatsData.R"))
 
-# Get cycling data and per cycle data
+# --- Plotting functions --------------------------------------------
+source(here::here("R", "Plotting", "DischargePerCycle.R"))
+source(here::here("R", "Plotting", "ResistancePerCycle.R"))
+source(here::here("R", "Plotting", "DischargeCurves.R"))
+source(here::here("R", "Plotting", "ChargeCurves.R"))
+source(here::here("R", "Plotting", "VoltagevsTime.R"))
+
+# --- Run pipeline --------------------------------------------------
+FileList     <- GetFiles()
 CyclingData  <- ExtractCycleData(FileList)
 PerCycleData <- PerCycleData(CyclingData)
 StatsData    <- ExtractStatsData(FileList)
 
-
-source("R/Plotting/DischargePerCycle.R")
-source("R/Plotting/ResistancePerCycle.R")
-source("R/Plotting/DischargeCurves.R")
-source("R/Plotting/ChargeCurves.R")
-source("R/Plotting/VoltageVsTime.R")
-DischargeCyclePlot  <- DischargePerCyclePlot(PerCycleData)
-# ResistanceCyclePlot <- ResistancePerCyclePlot(PerCycleData)
-PlotVoltageCapacity(CyclingData)
-PlotChargeCurves(CyclingData)
-PlotVoltageTime(CyclingData)
+# --- Generate plots ------------------------------------------------
+DischargePerCyclePlot(PerCycleData)
+DischargeCurves(CyclingData)
+ChargeCurves(CyclingData)
+VoltageVsTime(CyclingData)
