@@ -19,15 +19,17 @@ source(here::here("R", "Plotting", "ResistancePerCycle.R"))
 source(here::here("R", "Plotting", "DischargeCurves.R"))
 source(here::here("R", "Plotting", "ChargeCurves.R"))
 source(here::here("R", "Plotting", "VoltagevsTime.R"))
+source(here::here("R", "Plotting", "DqDv.R"))
 
 # --- Run pipeline --------------------------------------------------
 FileList     <- GetFiles()
 CyclingData  <- ExtractCycleData(FileList)
-PerCycleData <- PerCycleData(CyclingData)
+PerCycleStats <- PerCycleData(CyclingData)
 StatsData    <- ExtractStatsData(FileList)
 
 # --- Generate plots ------------------------------------------------
-DischargePerCyclePlot(PerCycleData)
+DischargePerCyclePlot(PerCycleStats)
 DischargeCurves(CyclingData)
 ChargeCurves(CyclingData)
 VoltageVsTime(CyclingData)
+DqDv(CyclingData)
