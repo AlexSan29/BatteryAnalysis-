@@ -1,7 +1,7 @@
 PerCycleData <- function(CyclingData) {
 
   LastCycles <- CyclingData |>
-    filter(!is.na(Cycle)) |>
+    dplyr::filter(!is.na(Cycle)) |>
     group_by(File) |>
     summarise(DroppedCycle = max(Cycle), .groups = "drop")
 
@@ -11,9 +11,9 @@ PerCycleData <- function(CyclingData) {
   cat("\n")
 
   CyclingData |>
-    filter(!is.na(Cycle)) |>
+    dplyr::filter(!is.na(Cycle)) |>
     group_by(File) |>
-    filter(Cycle != max(Cycle)) |>
+    dplyr::filter(Cycle != max(Cycle)) |>
     ungroup() |>
     group_by(File, Cycle) |>
     summarise(
