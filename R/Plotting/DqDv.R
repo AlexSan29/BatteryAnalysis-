@@ -72,11 +72,7 @@ DqDv <- function(CyclingData,
     )) +
       geom_line(linewidth = 0.5, alpha = 0.85) +
       geom_hline(yintercept = 0, linewidth = 0.4, color = "grey50") +
-      scale_color_viridis_c(
-        name   = "Cycle",
-        option = "viridis",
-        breaks = scales::pretty_breaks(n = max(min(NCycles, 6), 2))
-      ) +
+      CycleColorScale(NCycles) +
       scale_x_continuous(
         breaks = scales::pretty_breaks(n = 6),
         labels = label_number(accuracy = 0.1),
@@ -88,18 +84,13 @@ DqDv <- function(CyclingData,
         expand = c(0.02, 0)
       ) +
       labs(
-        title    = CellName,
+        title    = GetPlotTitle(CellName),
         subtitle = sprintf("%d cycles", NCycles),
         x        = "Voltage (V)",
         y        = "dQ/dV (mAh/g/V)"
       ) +
       Theme_AS() +
-      theme(
-        legend.position  = "right",
-        legend.direction = "vertical",
-        legend.title     = element_text(size = 12),
-        legend.text      = element_text(size = 10)
-      )
+      IndividualPlotTheme()
 
     SaveDir  <- file.path(OutputDir, CellName)
     SavePath <- file.path(SaveDir, "DqDv.png")

@@ -41,11 +41,7 @@ VoltageVsTime <- function(CyclingData,
       color = Cycle
     )) +
       geom_line(linewidth = 0.5, alpha = 0.85) +
-      scale_color_viridis_c(
-        name   = "Cycle",
-        option = "viridis",
-        breaks = scales::pretty_breaks(n = max(min(NCycles, 6), 2))
-      ) +
+      CycleColorScale(NCycles) +
       scale_x_continuous(
         limits = XLim,
         breaks = scales::pretty_breaks(n = 6),
@@ -60,18 +56,13 @@ VoltageVsTime <- function(CyclingData,
         guide        = guide_axis(minor.ticks = TRUE)
       ) +
       labs(
-        title    = CellName,
+        title    = GetPlotTitle(CellName),
         subtitle = sprintf("%d cycles", NCycles),
         x        = "Time (hours)",
         y        = "Voltage (V)"
       ) +
       Theme_AS() +
-      theme(
-        legend.position  = "right",
-        legend.direction = "vertical",
-        legend.title     = element_text(size = 12),
-        legend.text      = element_text(size = 10)
-      )
+      IndividualPlotTheme()
 
     SaveDir  <- file.path(OutputDir, CellName)
     SavePath <- file.path(SaveDir, "VoltageVsTime.png")

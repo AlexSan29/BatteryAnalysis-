@@ -14,11 +14,14 @@ source(here::here("R", "DataExtract", "PerCycleData.R"))
 source(here::here("R", "DataExtract", "ExtractStatsData.R"))
 
 # --- Plotting functions --------------------------------------------
+source(here::here("R", "Plotting", "PlotConfig.R"))
+source(here::here("R", "Plotting", "SelectFiles.R"))
 source(here::here("R", "Plotting", "DischargePerCycle.R"))
 source(here::here("R", "Plotting", "ResistancePerCycle.R"))
 source(here::here("R", "Plotting", "DischargeCurves.R"))
 source(here::here("R", "Plotting", "ChargeCurves.R"))
 source(here::here("R", "Plotting", "VoltagevsTime.R"))
+source(here::here("R", "Plotting", "CurrentvsTime.R"))
 source(here::here("R", "Plotting", "DqDv.R"))
 source(here::here("R", "Plotting", "CEPerCycle.R"))
 
@@ -28,17 +31,18 @@ CyclingData  <- ExtractCycleData(FileList)
 PerCycleStats <- PerCycleData(CyclingData)
 StatsData    <- ExtractStatsData(FileList)
 
+# --- Select files for per-cycle plots -------------------------------
+# LEFT BUTTON IS SELECT, RIGHT BUTTON IS CANCEL
+SelectedStats <- SelectFiles(PerCycleStats)
+
 # --- Generate plots ------------------------------------------------
-CEPerCyclePlot(PerCycleStats)
-DischargePerCyclePlot(PerCycleStats)
+CEPerCyclePlot(SelectedStats)
+DischargePerCyclePlot(SelectedStats)
 DischargeCurves(CyclingData)
 ChargeCurves(CyclingData)
 
-
 # ----- sometimes i want these -----------------------------------------
-DqDv(CyclingData)
-VoltageVsTime(CyclingData)
+#DqDv(CyclingData)
+#VoltageVsTime(CyclingData)
+#CurrentVsTime(CyclingData)
 #ResistancePerCyclePlot(PerCycleStats)
-#---- things to improve ------------------------------------------------------
-# make all the plots adjustable from a single function
-# 

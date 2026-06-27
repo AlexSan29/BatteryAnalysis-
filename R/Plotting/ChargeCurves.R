@@ -22,12 +22,8 @@ ChargeCurves <- function(CyclingData,
     NCycles  <- n_distinct(FileData$Cycle)
     CellName <- tools::file_path_sans_ext(Fname)
 
-    CapRange  <- range(FileData$SpecificChargeCapacity, na.rm = TRUE)
-    VoltRange <- range(FileData$Voltage[FileData$Voltage > 1.29], na.rm = TRUE)
-    VoltPad   <- diff(VoltRange) * PaddingPct
-
-    XLim <- c(0, CapRange[2] * (1 + PaddingPct))
-    YLim <- c(1.3, 4.6)
+    CapRange <- range(FileData$SpecificChargeCapacity, na.rm = TRUE)
+    XLim     <- c(0, CapRange[2] * (1 + PaddingPct))
 
     P <- ggplot(FileData, aes(
       x     = SpecificChargeCapacity,
@@ -36,11 +32,7 @@ ChargeCurves <- function(CyclingData,
       color = Cycle
     )) +
       geom_line(linewidth = 0.6, alpha = 0.85) +
-      scale_color_viridis_c(
-        name   = "Cycle",
-        option = "viridis",
-        breaks = scales::pretty_breaks(n = max(min(NCycles, 6), 2))
-      ) +
+      CycleColorScale(NCycles) +
       scale_x_continuous(
         limits = XLim,
         breaks = scales::pretty_breaks(n = 6),
@@ -48,29 +40,24 @@ ChargeCurves <- function(CyclingData,
         expand = c(0.02, 0)
       ) +
       scale_y_continuous(
-        limits = YLim,
+        limits = VoltageYLim,
         breaks = seq(
-          YLim[1],
-          YLim[2],
-          by = 0.3
+          VoltageYLim[1],
+          VoltageYLim[2],
+          by = VoltageYBreak
         ),
         labels       = label_number(accuracy = 0.1),
         expand       = c(0.02, 0),
         guide        = guide_axis(minor.ticks = TRUE)
       ) +
       labs(
-        title    = CellName,
+        title    = GetPlotTitle(CellName),
         subtitle = sprintf("%d cycles", NCycles),
         x        = "Specific Charge Capacity (mAh/g)",
         y        = "Voltage (V)"
       ) +
       Theme_AS() +
-      theme(
-        legend.position  = "right",
-        legend.direction = "vertical",
-        legend.title     = element_text(size = 12),
-        legend.text      = element_text(size = 10)
-      )
+      IndividualPlotTheme()
 
     SaveDir  <- file.path(OutputDir, CellName)
     SavePath <- file.path(SaveDir, "ChargeCurves.png")
