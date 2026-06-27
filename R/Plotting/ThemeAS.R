@@ -32,14 +32,14 @@ Theme_AS <- function() {
       axis.ticks.length = unit(0.15, "cm"),
       
       plot.title = element_text(
-        size = 14,
+        size = 16,
         face = "bold",
         color = "black",
         hjust = 0,
         margin = margin(b = 8)
       ),
       plot.subtitle = element_text(
-        size = 12,
+        size = 14,
         color = "gray40",
         hjust = 0,
         margin = margin(b = 8)
@@ -48,9 +48,9 @@ Theme_AS <- function() {
       legend.position = "bottom",
       legend.direction = "horizontal",
       legend.title = element_blank(),
-      legend.text = element_text(size = 12),
+      legend.text = element_text(size = 14),
       legend.key = element_rect(fill = "white", color = NA),
-      legend.background = element_rect(fill = "white", color = NA),
+      legend.background = element_rect(fill = alpha("white", 0.7), color = NA),
       
       strip.text = element_text(
         size = 14,
@@ -59,7 +59,7 @@ Theme_AS <- function() {
       ),
       
       plot.caption = element_text(
-        size = 11,
+        size = 12,
         color = "black",
         hjust = 0,
         margin = margin(t = 6)

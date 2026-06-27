@@ -52,6 +52,7 @@ ExtractStatsData <- function(FileList, OutputDir = "outputs") {
 
         SpecificChargeCapacity    = (ChargeCapacity_Ah    * 1000) / ActiveMass,
         SpecificDischargeCapacity = (DischargeCapacity_Ah * 1000) / ActiveMass,
+        CoulombicEfficiency = (DischargeCapacity_Ah / ChargeCapacity_Ah) * 100,
 
         SpecificChargeEnergy    = (ChargeEnergy_Wh    * 1000) / ActiveMass,
         SpecificDischargeEnergy = (DischargeEnergy_Wh * 1000) / ActiveMass,
@@ -65,6 +66,7 @@ ExtractStatsData <- function(FileList, OutputDir = "outputs") {
         SpecificChargeCapacity, SpecificDischargeCapacity,
         SpecificChargeEnergy, SpecificDischargeEnergy,
         ChargeTime_h, DischargeTime_h, TotalCycleTime_h,
+        CoulombicEfficiency,
         Vmax_V
       )
   })

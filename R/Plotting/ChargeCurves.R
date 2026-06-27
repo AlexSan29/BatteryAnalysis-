@@ -2,7 +2,7 @@ ChargeCurves <- function(CyclingData,
                              OutputDir  = "outputs/Individual", # nolint: indentation_linter.
                              PaddingPct = 0.02,
                              PlotWidth  = 8,
-                             PlotHeight = 5,
+                             PlotHeight = 5.5,
                              DPI        = 300) {
 
   RequiredCols <- c("File", "Cycle", "Voltage", "SpecificChargeCapacity", "StepType")
