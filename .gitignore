@@ -1,6 +1,12 @@
-linters: linters_with_defaults(
-    object_name_linter = NULL,
-    line_length_linter = NULL,
-    object_usage_linter = NULL,
-    commented_code_linter = NULL
-  )
+# Data and generated outputs
+data/raw/
+outputs/
+
+# R session/workspace files
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS files
+.DS_Store
+Thumbs.db
