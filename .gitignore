@@ -1,6 +1,6 @@
 # Data and generated outputs
-data/raw/
-outputs/
+Data/
+Outputs/
 
 # R session/workspace files
 .Rhistory
