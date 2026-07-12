@@ -1,61 +1,103 @@
 PlotColors <- c(
-  "LMRO_Cycle_1"   = "#f7572a",
-  "LMRO_Cycle_2"   = "#48d80e",
-  "LMRO_Cycle_3"   = "#f53520",
-  "LMRO_Cycle_4"   = "#c9b3e4",
-  "LMRO_Cycle_5"   = "#7a0eff",
-  "LMRO_Cycle_6"   = "#7a0eff",
-  "LMRO_Cycle_7"   = "#f7572a",
-  "LMRO_Cycle_8"   = "#7a0eff",
-  "LMRO_Cycle_9"   = "#f7572a",
-  "LMRO_Cycle_11"  = "#f7572a",
-  "LMRO_Cycle_12"  = "#7a0eff",
-  "LMRO_Cycle_13"  = "#f7572a",
   "DOE_Cycle_2_1"  = "#00BFC4",
   "DOE_Cycle_2_2"  = "#C77CFF",
   "DOE_Cycle_2_3"  = "#FF61CC",
   "DOE_Cycle_2_4"  = "#476a51",
-  "DOE_Cycle_2_5"  = "#619CFF"
+  "DOE_Cycle_2_5"  = "#619CFF",
+  
+  "LMRO_Cycle_1"   = "#f7572a",
+  "LMRO_Cycle_2"   = "#48d80e",
+  "LMRO_Cycle_3"   = "#f53520",
+
+  "LMRO_Cycle_4"   = "#74dea2",
+  "LMRO_Cycle_5"   = "#22c92f",
+  "LMRO_Cycle_6"   = "#22c92f",
+  "LMRO_Cycle_7"   = "#ff0000",
+
+  "LMRO_Cycle_8"   = "#7a0eff",
+
+  "LMRO_Cycle_9"   = "#ff0000",
+  "LMRO_Cycle_16"  = "#ff0000",
+  "LMRO_Cycle_17"  = "#ff0000",
+  "LMRO_Cycle_18"  = "#22c92f",
+
+
+  "811_Cycle_11"   = "#000000",
+  "811_Cycle_12"   = "#0059ff",
+  "811_Cycle_13"   = "#0059ff",
+  "811_Cycle_14"   = "#000000",
+  "811_Cycle_15"   = "#0059ff",
+
+  "MC_Cycle_LMRO_3"      = "#22c92f",
+  "MC_Cycle_LMRO_4"      = "#22c92f"
+
+  
+
+
 )
 
 PlotLabels <- c(
-  "LMRO_Cycle_1"   = "Cell 1\n N:P 0.94",
-  "LMRO_Cycle_2"   = "Cell 2\n N:P 0.87",
-  "LMRO_Cycle_3"   = "Cell 3 Gr || Ru",
-  "LMRO_Cycle_4"   = "Cell 1\nConditioning",
-  "LMRO_Cycle_5"   = "Cell 2\nConditioning",
-  "LMRO_Cycle_6"   = "Cell 3\nConditioning",
-  "LMRO_Cycle_7"   = "Cell 4\nFull Window ",
-  "LMRO_Cycle_8"   = "Cell 3 \n N:P 1.5",
-  "LMRO_Cycle_9"   = "Cell 9\nLMRO Full Window",
-  "LMRO_Cycle_11"  = "Cell 11\nNMC811 Full Window",
-  "LMRO_Cycle_12"  = "Cell 12\nNMC811 Conditioning",
-  "LMRO_Cycle_13"  = "Cell 13\nNMC811 Conditioning",
   "DOE_Cycle_2_1"  = "111 -> SEM/EDS ",
   "DOE_Cycle_2_2"  = "111 Idle at 100C",
   "DOE_Cycle_2_3"  = "811 -> SEM/EDS ",
   "DOE_Cycle_2_4"  = "111 Rate Capability",
-  "DOE_Cycle_2_5"  = "111 + VC -> SEM/EDS"
+  "DOE_Cycle_2_5"  = "111 + VC -> SEM/EDS",
+
+
+  "LMRO_Cycle_1"   = "Cell 1\n N:P 0.94",
+  "LMRO_Cycle_2"   = "Cell 2\n N:P 0.87",
+  "LMRO_Cycle_3"   = "Cell 3 Gr || Ru",
+  "LMRO_Cycle_4"   = "LMRO Conditioning (no 2V)",
+  "LMRO_Cycle_5"   = "LMRO Conditioning",
+  "LMRO_Cycle_6"   = "LMRO Conditioning",
+  "LMRO_Cycle_7"   = "LMRO Full Window ",
+  "LMRO_Cycle_8"   = "Cell 3 \n N:P 1.5",
+  "LMRO_Cycle_9"   = "LMRO Full Window",
+  "LMRO_Cycle_16"  = "LMRO Full Window",
+  "LMRO_Cycle_17"  = "LMRO Full Window",
+  "LMRO_Cycle_18"  = "LMRO Conditioning",
+
+  "811_Cycle_11"   = "NMC811 Full Window",
+  "811_Cycle_12"   = "NMC811 Conditioning",
+  "811_Cycle_13"   = "NMC811 Conditioning",
+  "811_Cycle_14"   = "NMC811 Full Window",
+  "811_Cycle_15"   = "NMC811 Conditioning",
+
+  "MC_Cycle_LMRO_3"      = "LMRO ",
+  "MC_Cycle_LMRO_4"      = "LMRO "
+
+  
 )
 
 PlotTitles <- c(
-  "LMRO_Cycle_1"   = "Cell 1, N:P 0.94",
-  "LMRO_Cycle_2"   = "Cell 2, N:P 0.87",
-  "LMRO_Cycle_3"   = "Cell 3 Gr || Ru",
-  "LMRO_Cycle_4"   = "Cell 1 Conditioning",
-  "LMRO_Cycle_5"   = "Cell 2 Conditioning",
-  "LMRO_Cycle_6"   = "Cell 3 Conditioning",
-  "LMRO_Cycle_7"   = "Cell 4 Full Window",
-  "LMRO_Cycle_8"   = "Cell 3, N:P 1.5",
-  "LMRO_Cycle_9"   = "Cell 9 LMRO Full Window",
-  "LMRO_Cycle_11"  = "Cell 11 NMC811 Full Window",
-  "LMRO_Cycle_12"  = "Cell 12 NMC811 Conditioning",
-  "LMRO_Cycle_13"  = "Cell 13 NMC811 Conditioning",
   "DOE_Cycle_2_1"  = "111 -> SEM/EDS",
   "DOE_Cycle_2_2"  = "111 Idle at 100C",
   "DOE_Cycle_2_3"  = "811 -> SEM/EDS",
   "DOE_Cycle_2_4"  = "111 Rate Capability",
-  "DOE_Cycle_2_5"  = "111 + VC -> SEM/EDS"
+  "DOE_Cycle_2_5"  = "111 + VC -> SEM/EDS",
+  
+  "LMRO_Cycle_1"   = "Cell 1, N:P 0.94",
+  "LMRO_Cycle_2"   = "Cell 2, N:P 0.87",
+  "LMRO_Cycle_3"   = "Cell 3 Gr || Ru",
+  "LMRO_Cycle_4"   = "LMRO Conditioning(no 2V)",
+  "LMRO_Cycle_5"   = "LMRO Conditioning",
+  "LMRO_Cycle_6"   = "LMRO Conditioning",
+  "LMRO_Cycle_7"   = "LMRO Full Window",
+  "LMRO_Cycle_8"   = "Cell 3, N:P 1.5",
+  "LMRO_Cycle_9"   = "LMRO Full Window",
+  "LMRO_Cycle_16"  = "LMRO Full Window",
+  "LMRO_Cycle_17"  = "LMRO Full Window",
+  "LMRO_Cycle_18"  = "LMRO Conditioning",
+  
+  "811_Cycle_11"   = "NMC811 Full Window",
+  "811_Cycle_12"   = "NMC811 Conditioning",
+  "811_Cycle_13"   = "NMC811 Conditioning",
+  "811_Cycle_14"   = "NMC811 Full Window",
+  "811_Cycle_15"   = "NMC811 Condtioning",
+
+  
+  "MC_Cycle_LMRO_3"      = "LMRO",
+  "MC_Cycle1_LMRO_4"      = "LMRO"
 )
 
 GetPlotTitle <- function(CellName) {
@@ -72,6 +114,29 @@ CycleColorScale <- function(NCycles) {
     breaks = scales::pretty_breaks(n = max(min(NCycles, 6), 2))
   )
 }
+
+StageColors <- c(
+  "1" = "#3B82C4",
+  "2" = "#4DAF7C",
+  "3" = "#E8A33D",
+  "4" = "#D64545"
+)
+
+StageLabels <- c(
+  "1" = "S1 (2.0 - 4.2V)",
+  "2" = "S2 (2.0 - 4.3V)",
+  "3" = "S3 (2.0 - 4.4V)",
+  "4" = "S4 (2.0 - 4.6V)"
+)
+
+StageColorScale <- function() {
+  scale_color_manual(
+    name   = "Stage",
+    values = StageColors,
+    labels = StageLabels
+  )
+}
+
 
 IndividualPlotTheme <- function() {
   theme(

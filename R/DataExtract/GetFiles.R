@@ -1,7 +1,7 @@
 GetFiles <- function(FolderPath = "data/raw") {
   
   FileList <- list.files(FolderPath,
-                         pattern = "(?i)\\.xlsx$|\\.xls$|\\.csv$",
+                         pattern = "(?i)\\.xlsx$|\\.xls$|\\.csv$|\\.txt$",
                          full.names = TRUE,
                          recursive = FALSE)
   
