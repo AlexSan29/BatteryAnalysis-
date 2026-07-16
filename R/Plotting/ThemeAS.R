@@ -48,7 +48,7 @@ Theme_AS <- function() {
       legend.position = "bottom",
       legend.direction = "horizontal",
       legend.title = element_blank(),
-      legend.text = element_text(size = 14),
+      legend.text = element_text(size = 10),
       legend.key = element_rect(fill = "white", color = NA),
       legend.background = element_rect(fill = alpha("white", 0.7), color = NA),
       

@@ -43,6 +43,18 @@ ChargeCurves(CyclingData)
 
 # ----- sometimes i want these -----------------------------------------
 #DqDv(CyclingData)
-#VoltageVsTime(CyclingData)
-#CurrentVsTime(CyclingData)
+VoltageVsTime(CyclingData)
+CurrentVsTime(CyclingData)
 #ResistancePerCyclePlot(PerCycleStats)
+
+
+# ---- EIS -------------------------------------------------------------
+source(here::here("R", "DataExtract", "ExtractEISData.R"))
+source(here::here("R", "Plotting", "NyquistPlots.R"))
+EISData <- ExtractEISData(FileList)
+NyquistPlots(EISData)
+
+
+
+# ----- Save Cycling Data to xlsx -----------------------------------------------
+write_xlsx(CyclingData, file.path("outputs", "CyclingData.xlsx"))

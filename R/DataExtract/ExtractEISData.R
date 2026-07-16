@@ -21,15 +21,25 @@ ExtractEISData <- function(FileList) {
       stop(sprintf("Filename '%s' does not match expected EIS naming pattern.", Fname))
     }
 
-    Raw <- read_tsv(Fpath, skip = 1, show_col_types = FALSE)
+    Lines <- readLines(Fpath)
+    HeaderLineIdx <- which(grepl("Re\\(Z\\)", Lines))[1]
+
+    if (is.na(HeaderLineIdx)) {
+      stop(sprintf("Could not find a header row containing 'Re(Z)' in file '%s'.", Fname))
+    }
+
+    Raw <- read_table(
+      Fpath,
+      skip       = HeaderLineIdx,
+      col_names  = c("ReZ", "NegImZ"),
+      show_col_types = FALSE
+    )
 
     cat(sprintf("  [%d/%d] %s — %d rows\n", i, length(EISFiles), Fname, nrow(Raw)))
 
     Raw |>
-      select(
-        ReZ    = `Re(Z)/Ohm`,
-        NegImZ = `-Im(Z)/Ohm`
-      ) |>
+    select(ReZ, NegImZ) |>
+
       mutate(
         File        = tools::file_path_sans_ext(Fname),
         Stage       = Stage,
