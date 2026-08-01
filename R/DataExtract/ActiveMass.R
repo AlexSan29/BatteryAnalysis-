@@ -54,12 +54,29 @@ ActiveMass <- function() {
     "LMRO_Cycle_16.xlsx" = 0.01348,
     "LMRO_Cycle_17.xlsx" = 0.01788,
     "LMRO_Cycle_18.xlsx" = 0.01625,
+    "LMRO_Cycle_21.xlsx" = 0.01554,
+    "LMRO_Cycle_22.xlsx" = 0.01417,
+    "LMRO_Cycle_23.xlsx" = 0.01606,
+    "LMRO_Cycle_24.xlsx" = 0.014517,
+    "LMRO_Cycle_25.xlsx" = 0.01503,
+
+    "LMRO_Cycle_26.xlsx" = 0.01572,
+    "LMRO_Cycle_27.xlsx" = 0.0230,
+    "LMRO_Cycle_28.xlsx" = 0.02308,
+    "LMRO_Cycle_29.xlsx" = 0.01208,
+    "LMRO_Cycle_30.xlsx" = 0.0108,
+    "LMRO_Cycle_31.xlsx" = 0.00928,
+    "LMRO_Cycle_32.xlsx" = 0.00792,
+
+
 
     "811_Cycle_11.xlsx" = 0.01953,
-    "811_Cycle_12.xlsx" = 0.02025,
+    "811_Cycle_12.xlsx" = 0.02025,  
     "811_Cycle_13.xlsx" = 0.01818,
     "811_Cycle_14.xlsx" = 0.01926,
     "811_Cycle_15.xlsx" = 0.01935,
+    "811_Cycle_19.xlsx" = 0.02052,
+    "811_Cycle_20.xlsx" = 0.01953,
 
     "DOE_Cycle_2_1.xlsx" = 0.0258,
     "DOE_Cycle_2_2.xlsx" = 0.0255,

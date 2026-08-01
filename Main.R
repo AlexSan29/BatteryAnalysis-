@@ -24,6 +24,7 @@ source(here::here("R", "Plotting", "VoltagevsTime.R"))
 source(here::here("R", "Plotting", "CurrentvsTime.R"))
 source(here::here("R", "Plotting", "DqDv.R"))
 source(here::here("R", "Plotting", "CEPerCycle.R"))
+source(here::here("R", "Plotting", "DCIR.R"))
 
 # --- Run pipeline --------------------------------------------------
 FileList     <- GetFiles()
@@ -38,13 +39,14 @@ SelectedStats <- SelectFiles(PerCycleStats)
 # --- Generate plots ------------------------------------------------
 CEPerCyclePlot(SelectedStats)
 DischargePerCyclePlot(SelectedStats)
+DCIRPlot(SelectedStats)
 DischargeCurves(CyclingData)
 ChargeCurves(CyclingData)
 
 # ----- sometimes i want these -----------------------------------------
 #DqDv(CyclingData)
-VoltageVsTime(CyclingData)
-CurrentVsTime(CyclingData)
+#VoltageVsTime(CyclingData)
+#CurrentVsTime(CyclingData)
 #ResistancePerCyclePlot(PerCycleStats)
 
 
@@ -56,5 +58,8 @@ NyquistPlots(EISData)
 
 
 
-# ----- Save Cycling Data to xlsx -----------------------------------------------
+# ----- Save cycling data to xlsx -----------------------------------------------
 write_xlsx(CyclingData, file.path("outputs", "CyclingData.xlsx"))
+
+# ---- save eis data to xlsx ------------------------------------------------
+#write_xlsx(EISData, file.path("outputs", "EISData.xlsx"))

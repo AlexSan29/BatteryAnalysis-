@@ -5,21 +5,34 @@ PlotColors <- c(
   "DOE_Cycle_2_4"  = "#476a51",
   "DOE_Cycle_2_5"  = "#619CFF",
   
+  # these are graphite anodes
   "LMRO_Cycle_1"   = "#f7572a",
   "LMRO_Cycle_2"   = "#48d80e",
   "LMRO_Cycle_3"   = "#f53520",
+  "LMRO_Cycle_8"   = "#7a0eff",
 
+  # these are li anodes 
   "LMRO_Cycle_4"   = "#74dea2",
   "LMRO_Cycle_5"   = "#22c92f",
   "LMRO_Cycle_6"   = "#22c92f",
   "LMRO_Cycle_7"   = "#ff0000",
-
-  "LMRO_Cycle_8"   = "#7a0eff",
-
   "LMRO_Cycle_9"   = "#ff0000",
   "LMRO_Cycle_16"  = "#22c92f",
   "LMRO_Cycle_17"  = "#f4166b",
   "LMRO_Cycle_18"  = "#1a7004",
+  "LMRO_Cycle_21"  = "#ff0000",
+  "LMRO_Cycle_22"  = "#22c92f",
+  "LMRO_Cycle_23"  = "#22c92f",
+  "LMRO_Cycle_24"  = "#22c92f",
+  "LMRO_Cycle_25"  = "#22c92f",
+  "LMRO_Cycle_26"  = "#22c92f",
+
+  "LMRO_Cycle_27"  = "#ff0000",
+  "LMRO_Cycle_28"  = "#22c92f",
+  "LMRO_Cycle_29"  = "#ff0000",
+  "LMRO_Cycle_30"  = "#22c92f",
+  "LMRO_Cycle_31"  = "#ff0000",
+  "LMRO_Cycle_32"  = "#22c92f",
 
 
   "811_Cycle_11"   = "#000000",
@@ -27,12 +40,8 @@ PlotColors <- c(
   "811_Cycle_13"   = "#0059ff",
   "811_Cycle_14"   = "#000000",
   "811_Cycle_15"   = "#0059ff",
-
-  "MC_Cycle_LMRO_3"      = "#22c92f",
-  "MC_Cycle_LMRO_4"      = "#22c92f"
-
-  
-
+  "811_Cycle_19"   = "#000000",
+  "811_Cycle_20"   = "#000000"
 
 )
 
@@ -42,7 +51,6 @@ PlotLabels <- c(
   "DOE_Cycle_2_3"  = "811 -> SEM/EDS ",
   "DOE_Cycle_2_4"  = "111 Rate Capability",
   "DOE_Cycle_2_5"  = "111 + VC -> SEM/EDS",
-
 
   "LMRO_Cycle_1"   = "Cell 1\n N:P 0.94",
   "LMRO_Cycle_2"   = "Cell 2\n N:P 0.87",
@@ -56,17 +64,29 @@ PlotLabels <- c(
   "LMRO_Cycle_16"  = "16 LMRO Conditioning",
   "LMRO_Cycle_17"  = "17 LMRO Full Window New Material",
   "LMRO_Cycle_18"  = "18 LMRO Conditioning New Material",
+  "LMRO_Cycle_21"  = "21 LMRO Full Window",
+  "LMRO_Cycle_22"  = "22 LMRO Conditioning",
+  "LMRO_Cycle_23"  = "23 LMRO Conditioning",
+  "LMRO_Cycle_24"  = "24 LMRO Conditioning",
+  "LMRO_Cycle_25"  = "25 LMRO Conditioning",
+  "LMRO_Cycle_26"  = "26 LMRO Conditioning",
+
+  "LMRO_Cycle_27"  = "27 Syn#3 LMRO Full Window",
+  "LMRO_Cycle_28"  = "28 Syn#3 LMRO Conditioning",
+  "LMRO_Cycle_29"  = "29 Sol Gel C1 LMRO Full Window",
+  "LMRO_Cycle_30"  = "30 Sol Gel C1 LMRO Conditioning",
+  "LMRO_Cycle_31"  = "31 Sol Gel C2 LMRO Full Window",
+  "LMRO_Cycle_32"  = "32 Sol Gel C2 LMRO Conditioning",
+
 
   "811_Cycle_11"   = "11 NMC811 Full Window",
   "811_Cycle_12"   = "12 NMC811 Conditioning",
   "811_Cycle_13"   = "13 NMC811 Conditioning",
   "811_Cycle_14"   = "14 NMC811 Full Window",
   "811_Cycle_15"   = "15 NMC811 Conditioning",
+  "811_Cycle_19"   = "19 NMC811 Full Window",
+  "811_Cycle_20"   = "20 NMC811 Full Window"
 
-  "MC_Cycle_LMRO_3"      = "LMRO ",
-  "MC_Cycle_LMRO_4"      = "LMRO "
-
-  
 )
 
 PlotTitles <- c(
@@ -88,16 +108,28 @@ PlotTitles <- c(
   "LMRO_Cycle_16"  = "16 LMRO Conditioning",
   "LMRO_Cycle_17"  = "17 LMRO Full Window New Material",
   "LMRO_Cycle_18"  = "18 LMRO Conditioning New Material",
-  
+  "LMRO_Cycle_21"  = "21 LMRO Full Window",
+  "LMRO_Cycle_22"  = "22 LMRO Conditioning",
+  "LMRO_Cycle_23"  = "23 LMRO Conditioning",
+  "LMRO_Cycle_24"  = "24 LMRO Conditioning",
+  "LMRO_Cycle_25"  = "25 LMRO Full Window",
+  "LMRO_Cycle_26"  = "26 LMRO Conditioning + RT",
+  "LMRO_Cycle_27"  = "27 Syn#3 LMRO Full Window",
+  "LMRO_Cycle_28"  = "28 Syn#3 LMRO Conditioning",
+  "LMRO_Cycle_29"  = "29 Sol Gel C1 LMRO Full Window",
+  "LMRO_Cycle_30"  = "30 Sol Gel C1 LMRO Conditioning",
+  "LMRO_Cycle_31"  = "31 Sol Gel C2 LMRO Full Window",
+  "LMRO_Cycle_32"  = "32 Sol Gel C2 LMRO Conditioning",
+
+
   "811_Cycle_11"   = "11 NMC811 Full Window",
   "811_Cycle_12"   = "12 NMC811 Conditioning",
   "811_Cycle_13"   = "13 NMC811 Conditioning",
   "811_Cycle_14"   = "14 NMC811 Full Window",
   "811_Cycle_15"   = "15 NMC811 Conditioning",
+  "811_Cycle_19"   = "19 NMC811 Full Window",
+  "811_Cycle_20"   = "20 NMC811 Full Window"
 
-  
-  "MC_Cycle_LMRO_3"      = "LMRO",
-  "MC_Cycle1_LMRO_4"      = "LMRO"
 )
 
 GetPlotTitle <- function(CellName) {

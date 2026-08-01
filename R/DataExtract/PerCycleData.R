@@ -19,6 +19,7 @@ PerCycleData <- function(CyclingData) {
     summarise(
       MaxSpecificChargeCapacity    = suppressWarnings(max(SpecificChargeCapacity[StepType == "Charge"],    na.rm = TRUE)),
       MaxSpecificDischargeCapacity = suppressWarnings(max(SpecificDischargeCapacity[StepType == "Discharge"], na.rm = TRUE)),
+      InternalResistance = suppressWarnings(max(InternalResistance[StepType == "Rest"], na.rm = TRUE)),
       DischargeFirstVoltage = {
         V <- Voltage[StepType == "Discharge"]
         if (length(V) > 0) V[1] else NA_real_
@@ -45,6 +46,6 @@ PerCycleData <- function(CyclingData) {
     select(
       File, Cycle,
       MaxSpecificChargeCapacity, MaxSpecificDischargeCapacity,
-      CoulombicEfficiency, Resistance
+      CoulombicEfficiency, InternalResistance, Resistance
     )
 }

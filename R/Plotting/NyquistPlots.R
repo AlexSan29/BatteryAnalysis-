@@ -12,6 +12,9 @@ NyquistPlots <- function(EISData,
 
   Combos <- EISData |> distinct(CellNum, ChargeState, Material)
 
+  XMax <- 15
+  YMax <- 15
+
   pwalk(Combos, function(CellNum, ChargeState, Material) {
 
     ThisCell     <- CellNum
@@ -31,8 +34,12 @@ NyquistPlots <- function(EISData,
       geom_point(size = 1.4, alpha = 0.85) +
       StageColorScale() +
       coord_fixed(ratio = 1) +
-      scale_x_continuous(breaks = scales::pretty_breaks(n = 6)) +
-      scale_y_continuous(breaks = scales::pretty_breaks(n = 6)) +
+      scale_x_continuous(breaks = scales::pretty_breaks(n = 6), 
+      #limits = c(0, XMax)
+      ) +
+      scale_y_continuous(breaks = scales::pretty_breaks(n = 6), 
+      #limits = c(0, YMax)
+      ) +
       labs(
         title    = GetPlotTitle(CellFolderName),
         subtitle = StateLabel,

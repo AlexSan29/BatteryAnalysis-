@@ -1,6 +1,6 @@
 ArbinCols <- c(
   "Test_Time(s)", "Step_Index", "Cycle_Index",
-  "Current(A)", "Voltage(V)", "Charge_Capacity(Ah)", "Discharge_Capacity(Ah)"
+  "Current(A)", "Voltage(V)", "Charge_Capacity(Ah)", "Discharge_Capacity(Ah)", "Internal_Resistance(Ohm)"
 )
 
 ExtractCycleData <- function(FileList) {
@@ -46,7 +46,8 @@ ExtractCycleData <- function(FileList) {
         Current           = `Current(A)`,
         Voltage           = `Voltage(V)`,
         ChargeCapacity    = `Charge_Capacity(Ah)`,
-        DischargeCapacity = `Discharge_Capacity(Ah)`
+        DischargeCapacity = `Discharge_Capacity(Ah)`,
+        InternalResistance = `Internal_Resistance(Ohm)`
       ) |>
       mutate(
         File                      = tools::file_path_sans_ext(Fname),
