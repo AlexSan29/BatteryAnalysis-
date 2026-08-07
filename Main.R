@@ -51,15 +51,17 @@ ChargeCurves(CyclingData)
 
 
 # ---- EIS -------------------------------------------------------------
-source(here::here("R", "DataExtract", "ExtractEISData.R"))
-source(here::here("R", "Plotting", "NyquistPlots.R"))
-EISData <- ExtractEISData(FileList)
-NyquistPlots(EISData)
+#source(here::here("R", "DataExtract", "ExtractEISData.R"))
+#source(here::here("R", "Plotting", "NyquistPlots.R"))
+#EISData <- ExtractEISData(FileList)
+#NyquistPlots(EISData)
 
 
 
-# ----- Save cycling data to xlsx -----------------------------------------------
-write_xlsx(CyclingData, file.path("outputs", "CyclingData.xlsx"))
+# ----- Save cycling data to xlsx ---------------------------------------
+#write_xlsx(CyclingData, file.path("outputs", "CyclingData.xlsx"))
 
-# ---- save eis data to xlsx ------------------------------------------------
+# ---- save eis data to xlsx --------------------------------------------
 #write_xlsx(EISData, file.path("outputs", "EISData.xlsx"))
+
+

@@ -77,6 +77,9 @@ ActiveMass <- function() {
     "811_Cycle_15.xlsx" = 0.01935,
     "811_Cycle_19.xlsx" = 0.02052,
     "811_Cycle_20.xlsx" = 0.01953,
+    "811_Cycle_33.xlsx" = 0.0252,
+    "811_Cycle_34.xlsx" = 0.02079,
+    "811_Cycle_35.xlsx" = 0.02034,
 
     "DOE_Cycle_2_1.xlsx" = 0.0258,
     "DOE_Cycle_2_2.xlsx" = 0.0255,

@@ -23,7 +23,7 @@ PlotColors <- c(
   "LMRO_Cycle_21"  = "#ff0000",
   "LMRO_Cycle_22"  = "#22c92f",
   "LMRO_Cycle_23"  = "#22c92f",
-  "LMRO_Cycle_24"  = "#22c92f",
+  "LMRO_Cycle_24"  = "#ff0000",
   "LMRO_Cycle_25"  = "#22c92f",
   "LMRO_Cycle_26"  = "#22c92f",
 
@@ -41,7 +41,11 @@ PlotColors <- c(
   "811_Cycle_14"   = "#000000",
   "811_Cycle_15"   = "#0059ff",
   "811_Cycle_19"   = "#000000",
-  "811_Cycle_20"   = "#000000"
+  "811_Cycle_20"   = "#000000",
+  "811_Cycle_33"   = "#ffa600",
+  "811_Cycle_34"   = "#ffa600",
+  "811_Cycle_35"   = "#ffa600"
+
 
 )
 
@@ -67,7 +71,7 @@ PlotLabels <- c(
   "LMRO_Cycle_21"  = "21 LMRO Full Window",
   "LMRO_Cycle_22"  = "22 LMRO Conditioning",
   "LMRO_Cycle_23"  = "23 LMRO Conditioning",
-  "LMRO_Cycle_24"  = "24 LMRO Conditioning",
+  "LMRO_Cycle_24"  = "24 LMRO Full Window",
   "LMRO_Cycle_25"  = "25 LMRO Conditioning",
   "LMRO_Cycle_26"  = "26 LMRO Conditioning",
 
@@ -85,7 +89,10 @@ PlotLabels <- c(
   "811_Cycle_14"   = "14 NMC811 Full Window",
   "811_Cycle_15"   = "15 NMC811 Conditioning",
   "811_Cycle_19"   = "19 NMC811 Full Window",
-  "811_Cycle_20"   = "20 NMC811 Full Window"
+  "811_Cycle_20"   = "20 NMC811 Full Window",
+  "811_Cycle_33"   = "33 NMC811 Full Window",
+  "811_Cycle_34"   = "34 NMC811 Full Window",
+  "811_Cycle_35"   = "35 NMC811 Full Window"
 
 )
 
@@ -111,7 +118,7 @@ PlotTitles <- c(
   "LMRO_Cycle_21"  = "21 LMRO Full Window",
   "LMRO_Cycle_22"  = "22 LMRO Conditioning",
   "LMRO_Cycle_23"  = "23 LMRO Conditioning",
-  "LMRO_Cycle_24"  = "24 LMRO Conditioning",
+  "LMRO_Cycle_24"  = "24 LMRO Full Window",
   "LMRO_Cycle_25"  = "25 LMRO Full Window",
   "LMRO_Cycle_26"  = "26 LMRO Conditioning + RT",
   "LMRO_Cycle_27"  = "27 Syn#3 LMRO Full Window",
@@ -128,7 +135,10 @@ PlotTitles <- c(
   "811_Cycle_14"   = "14 NMC811 Full Window",
   "811_Cycle_15"   = "15 NMC811 Conditioning",
   "811_Cycle_19"   = "19 NMC811 Full Window",
-  "811_Cycle_20"   = "20 NMC811 Full Window"
+  "811_Cycle_20"   = "20 NMC811 Full Window",
+  "811_Cycle_33"   = "33 NMC811 Full Window",
+  "811_Cycle_34"   = "34 NMC811 Full Window",
+  "811_Cycle_35"   = "35 NMC811 Full Window"
 
 )
 

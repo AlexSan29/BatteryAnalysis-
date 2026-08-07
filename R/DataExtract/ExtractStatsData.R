@@ -44,7 +44,8 @@ ExtractStatsData <- function(FileList, OutputDir = "outputs") {
         DischargeEnergy_Wh   = `Discharge_Energy(Wh)`,
         ChargeTime_s         = `Charge_Time(s)`,
         DischargeTime_s      = `DisCharge_Time(s)`,
-        Vmax_V               = `Vmax_On_Cycle(V)`
+        Vmax_V               = `Vmax_On_Cycle(V)`,
+        DCIR_Ohm             = `Internal_Resistance(Ohm)`
       ) |>
       mutate(
         File       = CellName,
@@ -63,11 +64,8 @@ ExtractStatsData <- function(FileList, OutputDir = "outputs") {
       ) |>
       select(
         File, Cycle, ActiveMass,
-        SpecificChargeCapacity, SpecificDischargeCapacity,
-        SpecificChargeEnergy, SpecificDischargeEnergy,
-        ChargeTime_h, DischargeTime_h, TotalCycleTime_h,
-        CoulombicEfficiency,
-        Vmax_V
+        SpecificChargeCapacity, SpecificDischargeCapacity,CoulombicEfficiency,
+        DCIR_Ohm
       )
   })
 
