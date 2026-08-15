@@ -44,9 +44,13 @@ DischargeCurves(CyclingData)
 ChargeCurves(CyclingData)
 
 # ----- sometimes i want these -----------------------------------------
-#DqDv(CyclingData)
-#VoltageVsTime(CyclingData)
-#CurrentVsTime(CyclingData)
+DqDv(
+  CyclingData,
+  Cycles = seq(5, 50, by = 5),
+  SgWindow = 31
+)
+VoltageVsTime(CyclingData)
+CurrentVsTime(CyclingData)
 #ResistancePerCyclePlot(PerCycleStats)
 
 
@@ -63,5 +67,4 @@ ChargeCurves(CyclingData)
 
 # ---- save eis data to xlsx --------------------------------------------
 #write_xlsx(EISData, file.path("outputs", "EISData.xlsx"))
-
 

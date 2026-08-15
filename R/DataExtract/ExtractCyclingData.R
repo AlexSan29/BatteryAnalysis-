@@ -1,9 +1,13 @@
 ArbinCols <- c(
   "Test_Time(s)", "Step_Index", "Cycle_Index",
-  "Current(A)", "Voltage(V)", "Charge_Capacity(Ah)", "Discharge_Capacity(Ah)", "Internal_Resistance(Ohm)"
+  "Current(A)", "Voltage(V)", "Charge_Capacity(Ah)",
+  "Discharge_Capacity(Ah)", "Internal_Resistance(Ohm)"
 )
 
-ExtractCycleData <- function(FileList) {
+ExtractCycleData <- function(FileList,
+                             CurrentTolerance = 1e-6,
+                             MinCapacity_mAh_g = 0.10,
+                             MinFraction = 0.001) {
 
   CyclingFiles <- FileList[grepl("cycle", basename(FileList), ignore.case = TRUE)]
 
@@ -25,37 +29,48 @@ ExtractCycleData <- function(FileList) {
         error = function(e) NULL
       )
       if (is.null(Dat)) return(NULL)
-      if (all(ArbinCols %in% colnames(Dat))) return(Dat) else return(NULL) # nolint: return_linter.
+      if (all(ArbinCols %in% colnames(Dat))) return(Dat) else return(NULL)
     })
 
     RawList <- compact(RawList)
 
     if (length(RawList) == 0) {
-      stop(sprintf("File '%s' contains no sheets with the expected Arbin columns.", Fname))
+      stop(sprintf(
+        "File '%s' contains no sheets with the expected Arbin columns.",
+        Fname
+      ))
     }
 
     Raw <- bind_rows(RawList)
 
-    cat(sprintf("  [%d/%d] %s — %d rows\n", i, length(CyclingFiles), Fname, nrow(Raw)))
+    cat(sprintf(
+      "  [%d/%d] %s — %d rows\n",
+      i, length(CyclingFiles), Fname, nrow(Raw)
+    ))
 
     Raw |>
       select(
-        TestTime          = `Test_Time(s)`,
-        Step              = Step_Index,
-        Cycle             = Cycle_Index,
-        Current           = `Current(A)`,
-        Voltage           = `Voltage(V)`,
-        ChargeCapacity    = `Charge_Capacity(Ah)`,
-        DischargeCapacity = `Discharge_Capacity(Ah)`,
+        TestTime           = `Test_Time(s)`,
+        Step               = Step_Index,
+        Cycle              = Cycle_Index,
+        Current            = `Current(A)`,
+        Voltage            = `Voltage(V)`,
+        ChargeCapacity     = `Charge_Capacity(Ah)`,
+        DischargeCapacity  = `Discharge_Capacity(Ah)`,
         InternalResistance = `Internal_Resistance(Ohm)`
       ) |>
       mutate(
-        File                      = tools::file_path_sans_ext(Fname),
-        ActiveMass                = GetActiveMass(Fname),
-        SpecificChargeCapacity    = (ChargeCapacity    * 1000) / ActiveMass,
+        File = tools::file_path_sans_ext(Fname),
+        ActiveMass = GetActiveMass(Fname),
+        SpecificChargeCapacity = (ChargeCapacity * 1000) / ActiveMass,
         SpecificDischargeCapacity = (DischargeCapacity * 1000) / ActiveMass
       ) |>
-      LabelSteps()
+      LabelSteps(CurrentTolerance = CurrentTolerance) |>
+      AddCurveFilterFlags(
+        CurrentTolerance = CurrentTolerance,
+        MinCapacity_mAh_g = MinCapacity_mAh_g,
+        MinFraction = MinFraction
+      )
   })
 
   AllData <- bind_rows(AllDataList)

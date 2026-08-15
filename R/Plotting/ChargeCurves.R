@@ -1,18 +1,30 @@
 ChargeCurves <- function(CyclingData,
-                             OutputDir  = "outputs/Individual", # nolint: indentation_linter.
-                             PaddingPct = 0.02,
-                             PlotWidth  = 8,
-                             PlotHeight = 5.5,
-                             DPI        = 300) {
+                         OutputDir  = "outputs/Individual",
+                         PaddingPct = 0.02,
+                         PlotWidth  = 8,
+                         PlotHeight = 5.5,
+                         DPI        = 300) {
 
-  RequiredCols <- c("File", "Cycle", "Voltage", "SpecificChargeCapacity", "StepType")
-  MissingCols  <- setdiff(RequiredCols, colnames(CyclingData))
+  RequiredCols <- c(
+    "File", "Cycle", "Voltage", "SpecificChargeCapacity",
+    "StepType", "CurveBlock", "KeepChargeCurve"
+  )
+  MissingCols <- setdiff(RequiredCols, colnames(CyclingData))
   if (length(MissingCols) > 0) {
-    stop("CyclingData is missing required columns: ", paste(MissingCols, collapse = ", "))
+    stop(
+      "CyclingData is missing required columns: ",
+      paste(MissingCols, collapse = ", ")
+    )
   }
 
   ChargeData <- CyclingData |>
-    filter(StepType == "Charge", !is.na(Cycle), !is.na(Voltage), !is.na(SpecificChargeCapacity))
+    filter(
+      StepType == "Charge",
+      KeepChargeCurve,
+      !is.na(Cycle),
+      !is.na(Voltage),
+      !is.na(SpecificChargeCapacity)
+    )
 
   Files <- unique(ChargeData$File)
 
@@ -26,9 +38,9 @@ ChargeCurves <- function(CyclingData,
     XLim     <- c(0, CapRange[2] * (1 + PaddingPct))
 
     P <- ggplot(FileData, aes(
-      x     = SpecificChargeCapacity,
-      y     = Voltage,
-      group = factor(Cycle),
+      x = SpecificChargeCapacity,
+      y = Voltage,
+      group = interaction(Cycle, CurveBlock),
       color = Cycle
     )) +
       geom_line(linewidth = 0.6, alpha = 0.85) +
@@ -41,20 +53,16 @@ ChargeCurves <- function(CyclingData,
       ) +
       scale_y_continuous(
         limits = VoltageYLim,
-        breaks = seq(
-          VoltageYLim[1],
-          VoltageYLim[2],
-          by = VoltageYBreak
-        ),
-        labels       = label_number(accuracy = 0.1),
-        expand       = c(0.02, 0),
-        guide        = guide_axis(minor.ticks = TRUE)
+        breaks = seq(VoltageYLim[1], VoltageYLim[2], by = VoltageYBreak),
+        labels = label_number(accuracy = 0.1),
+        expand = c(0.02, 0),
+        guide = guide_axis(minor.ticks = TRUE)
       ) +
       labs(
-        title    = GetPlotTitle(CellName),
+        title = GetPlotTitle(CellName),
         subtitle = sprintf("%d cycles", NCycles),
-        x        = "Specific Charge Capacity (mAh/g)",
-        y        = "Voltage (V)"
+        x = "Specific Charge Capacity (mAh/g)",
+        y = "Voltage (V)"
       ) +
       Theme_AS() +
       IndividualPlotTheme()
@@ -62,7 +70,10 @@ ChargeCurves <- function(CyclingData,
     SaveDir  <- file.path(OutputDir, CellName)
     SavePath <- file.path(SaveDir, "ChargeCurves.png")
     dir.create(SaveDir, recursive = TRUE, showWarnings = FALSE)
-    ggsave(SavePath, plot = P, width = PlotWidth, height = PlotHeight, dpi = DPI)
+    ggsave(
+      SavePath, plot = P,
+      width = PlotWidth, height = PlotHeight, dpi = DPI
+    )
   })
 
   cat(sprintf("Plotting charge curves... Done (%d files)\n", length(Files)))
