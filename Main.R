@@ -12,6 +12,7 @@ source(here::here("R", "DataExtract", "LabelSteps.R"))
 source(here::here("R", "DataExtract", "ExtractCyclingData.R"))
 source(here::here("R", "DataExtract", "PerCycleData.R"))
 source(here::here("R", "DataExtract", "ExtractStatsData.R"))
+source(here::here("R", "DataExtract", "ExportCycleCurves.R"))
 
 # --- Plotting functions --------------------------------------------
 source(here::here("R", "Plotting", "PlotConfig.R"))
@@ -30,7 +31,10 @@ source(here::here("R", "Plotting", "DCIR.R"))
 FileList     <- GetFiles()
 CyclingData  <- ExtractCycleData(FileList)
 PerCycleStats <- PerCycleData(CyclingData)
-StatsData    <- ExtractStatsData(FileList)
+StatsData <- ExtractStatsData(FileList, LabelMap = PlotLabels )
+#CurveExportLog <- ExportCycleCurves( CyclingData, LabelMap = PlotLabels, CompleteCyclesOnly = TRUE)
+
+
 
 # --- Select files for per-cycle plots -------------------------------
 # LEFT BUTTON IS SELECT, RIGHT BUTTON IS CANCEL
@@ -44,27 +48,14 @@ DischargeCurves(CyclingData)
 ChargeCurves(CyclingData)
 
 # ----- sometimes i want these -----------------------------------------
-DqDv(
-  CyclingData,
-  Cycles = seq(5, 50, by = 5),
-  SgWindow = 31
-)
-VoltageVsTime(CyclingData)
-CurrentVsTime(CyclingData)
+#DqDv(CyclingData,Cycles = seq(5, 50, by = 5),SgWindow = 31)
+#VoltageVsTime(CyclingData)
+#CurrentVsTime(CyclingData)
 #ResistancePerCyclePlot(PerCycleStats)
-
 
 # ---- EIS -------------------------------------------------------------
 #source(here::here("R", "DataExtract", "ExtractEISData.R"))
 #source(here::here("R", "Plotting", "NyquistPlots.R"))
 #EISData <- ExtractEISData(FileList)
 #NyquistPlots(EISData)
-
-
-
-# ----- Save cycling data to xlsx ---------------------------------------
-#write_xlsx(CyclingData, file.path("outputs", "CyclingData.xlsx"))
-
-# ---- save eis data to xlsx --------------------------------------------
 #write_xlsx(EISData, file.path("outputs", "EISData.xlsx"))
-

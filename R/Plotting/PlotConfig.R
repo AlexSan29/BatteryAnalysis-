@@ -33,6 +33,8 @@ PlotColors <- c(
   "LMRO_Cycle_30"  = "#22c92f",
   "LMRO_Cycle_31"  = "#ff0000",
   "LMRO_Cycle_32"  = "#22c92f",
+  "LMRO_Cycle_36"  = "#227ec9",
+  "LMRO_Cycle_37"  = "#22c92f",
 
 
   "811_Cycle_11"   = "#000000",
@@ -81,6 +83,8 @@ PlotLabels <- c(
   "LMRO_Cycle_30"  = "30 Sol Gel C1 LMRO Conditioning",
   "LMRO_Cycle_31"  = "31 Sol Gel C2 LMRO Full Window",
   "LMRO_Cycle_32"  = "32 Sol Gel C2 LMRO Conditioning",
+  "LMRO_Cycle_36"  = "36 LMRO 4.5V Cutoff",
+  "LMRO_Cycle_37"  = "37 LMRO 4.5V Cutoff",
 
 
   "811_Cycle_11"   = "11 NMC811 Full Window",
@@ -127,6 +131,8 @@ PlotTitles <- c(
   "LMRO_Cycle_30"  = "30 Sol Gel C1 LMRO Conditioning",
   "LMRO_Cycle_31"  = "31 Sol Gel C2 LMRO Full Window",
   "LMRO_Cycle_32"  = "32 Sol Gel C2 LMRO Conditioning",
+  "LMRO_Cycle_36"  = "36",
+  "LMRO_Cycle_37"  = "37",
 
 
   "811_Cycle_11"   = "11 NMC811 Full Window",
