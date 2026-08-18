@@ -40,8 +40,7 @@ PerCycleData <- function(CyclingData) {
       .groups = "drop"
     ) |>
     mutate(
-      CoulombicEfficiency = (MaxSpecificDischargeCapacity / MaxSpecificChargeCapacity) * 100,
-      Resistance          = (RestLastVoltage - DischargeFirstVoltage) / abs(DischargeCurrent)
+      CoulombicEfficiency = (MaxSpecificDischargeCapacity / MaxSpecificChargeCapacity) * 100)
     ) |>
     select(
       File, Cycle,

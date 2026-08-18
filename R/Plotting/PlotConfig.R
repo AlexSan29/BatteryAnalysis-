@@ -68,6 +68,7 @@ PlotLabels <- c(
   "LMRO_Cycle_8"   = "Cell 3 \n N:P 1.5",
   "LMRO_Cycle_9"   = "09 LMRO Full Window",
   "LMRO_Cycle_16"  = "16 LMRO Conditioning",
+  "LMRO_Cycle_16_RateTesting" = "16 LMRO Conditioning + Rate Testing",
   "LMRO_Cycle_17"  = "17 LMRO Full Window New Material",
   "LMRO_Cycle_18"  = "18 LMRO Conditioning New Material",
   "LMRO_Cycle_21"  = "21 LMRO Full Window",
@@ -117,6 +118,7 @@ PlotTitles <- c(
   "LMRO_Cycle_8"   = "Cell 3, N:P 1.5",
   "LMRO_Cycle_9"   = "09 LMRO Full Window",
   "LMRO_Cycle_16"  = "16 LMRO Conditioning",
+  "LMRO_Cycle_16_RateTesting" = "16 LMRO Conditioning + Rate Testing",
   "LMRO_Cycle_17"  = "17 LMRO Full Window New Material",
   "LMRO_Cycle_18"  = "18 LMRO Conditioning New Material",
   "LMRO_Cycle_21"  = "21 LMRO Full Window",
@@ -131,8 +133,8 @@ PlotTitles <- c(
   "LMRO_Cycle_30"  = "30 Sol Gel C1 LMRO Conditioning",
   "LMRO_Cycle_31"  = "31 Sol Gel C2 LMRO Full Window",
   "LMRO_Cycle_32"  = "32 Sol Gel C2 LMRO Conditioning",
-  "LMRO_Cycle_36"  = "36",
-  "LMRO_Cycle_37"  = "37",
+  "LMRO_Cycle_36"  = "36 LMRO 4.5V Cutoff",
+  "LMRO_Cycle_37"  = "37 LMRO 4.5V Cutoff",
 
 
   "811_Cycle_11"   = "11 NMC811 Full Window",

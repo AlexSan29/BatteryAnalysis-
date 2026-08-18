@@ -18,7 +18,6 @@ source(here::here("R", "DataExtract", "ExportCycleCurves.R"))
 source(here::here("R", "Plotting", "PlotConfig.R"))
 source(here::here("R", "Plotting", "SelectFiles.R"))
 source(here::here("R", "Plotting", "DischargePerCycle.R"))
-source(here::here("R", "Plotting", "ResistancePerCycle.R"))
 source(here::here("R", "Plotting", "DischargeCurves.R"))
 source(here::here("R", "Plotting", "ChargeCurves.R"))
 source(here::here("R", "Plotting", "VoltagevsTime.R"))
@@ -47,11 +46,12 @@ DCIRPlot(SelectedStats)
 DischargeCurves(CyclingData)
 ChargeCurves(CyclingData)
 
+
 # ----- sometimes i want these -----------------------------------------
-#DqDv(CyclingData,Cycles = seq(5, 50, by = 5),SgWindow = 31)
+#DqDv(CyclingData,Cycles = seq(1, 50, by = 1),SgWindow = 31)
 #VoltageVsTime(CyclingData)
 #CurrentVsTime(CyclingData)
-#ResistancePerCyclePlot(PerCycleStats)
+
 
 # ---- EIS -------------------------------------------------------------
 #source(here::here("R", "DataExtract", "ExtractEISData.R"))
